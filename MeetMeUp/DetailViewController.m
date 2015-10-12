@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "WebViewController.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -22,13 +23,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.nameLabel.text = self.meetup[@"venue"][@"name"];
-    self.RSVPCountLabel.text = self.meetup[@"yes_rsvp_count"];
+    self.RSVPCountLabel.text = [NSString stringWithFormat:@"%@", self.meetup[@"yes_rsvp_count"]];
     self.hostingGroupInfoLabel.text = self.meetup[@"group"][@"name"];
-    self.eventDescriptionLabel.text = self.meetup[@"description"];
+
 
 
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    WebViewController *webVC = segue.destinationViewController;
+
+    NSString *meetupURL = self.meetup[@"event_url"];
+    [meetupURL stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+    webVC.urlString = meetupURL;
+}
 
 
 @end
