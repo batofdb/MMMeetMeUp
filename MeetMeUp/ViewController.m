@@ -9,8 +9,9 @@
 #import "ViewController.h"
 #import "DetailViewController.h"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @property NSDictionary *results;
 @property NSArray *meetups;
@@ -21,23 +22,64 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSURL *url = [NSURL URLWithString:@"https://api.meetup.com/2/open_events.json?zip=60604&text=mobile&time=,1w&key=572016383a79486528177a5d12111c"];
+
+    [self search:@"mobile"];
+    self.textField.text = @"mobile";
+
+
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+
+    if ([textField.text containsString:@" "]){
+        [textField.text stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    }
+
+
+    [self search:textField.text];
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)search:(NSString *)searchString{
+
+    NSString *customString =[NSString stringWithFormat:@"https://api.meetup.com/2/open_events.json?zip=94115&text=%@&time=,1w&key=572016383a79486528177a5d12111c", searchString];
+    NSURL *url = [NSURL URLWithString:customString];
+    [self loadResultsWithUrl:url];
+}
+
+-(void)loadResultsWithUrl:(NSURL *)url{
+
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 
+        if (data){
         self.results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
 
         self.meetups = [[NSArray alloc] init];
         self.meetups = self.results[@"results"];
 
+
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"log");
+          //  NSLog(@"log");
 
             [self.tableView reloadData];
         });
+
+        }
+
+        else {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Results" message:@"No meetups found with that search" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *dismiss = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                self.textField.text = @"";
+            }];
+
+            [alert addAction:dismiss];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+
     }];
-
+    
     [task resume];
-
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
