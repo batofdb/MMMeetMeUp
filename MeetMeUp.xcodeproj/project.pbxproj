@@ -15,6 +15,7 @@
 		471CB2231BCC4F1A00FC4D48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471CB2211BCC4F1A00FC4D48 /* LaunchScreen.storyboard */; };
 		471CB22E1BCC4F1B00FC4D48 /* MeetMeUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 471CB22D1BCC4F1B00FC4D48 /* MeetMeUpTests.m */; };
 		471CB2391BCC4F1B00FC4D48 /* MeetMeUpUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 471CB2381BCC4F1B00FC4D48 /* MeetMeUpUITests.m */; };
+		4741923E1BCC59B500FBE2FA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4741923D1BCC59B500FBE2FA /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		471CB2341BCC4F1B00FC4D48 /* MeetMeUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetMeUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		471CB2381BCC4F1B00FC4D48 /* MeetMeUpUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetMeUpUITests.m; sourceTree = "<group>"; };
 		471CB23A1BCC4F1B00FC4D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4741923C1BCC59B500FBE2FA /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		4741923D1BCC59B500FBE2FA /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				471CB2211BCC4F1A00FC4D48 /* LaunchScreen.storyboard */,
 				471CB2241BCC4F1A00FC4D48 /* Info.plist */,
 				471CB2131BCC4F1A00FC4D48 /* Supporting Files */,
+				4741923C1BCC59B500FBE2FA /* DetailViewController.h */,
+				4741923D1BCC59B500FBE2FA /* DetailViewController.m */,
 			);
 			path = MeetMeUp;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 				471CB21B1BCC4F1A00FC4D48 /* ViewController.m in Sources */,
 				471CB2181BCC4F1A00FC4D48 /* AppDelegate.m in Sources */,
 				471CB2151BCC4F1A00FC4D48 /* main.m in Sources */,
+				4741923E1BCC59B500FBE2FA /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +502,7 @@
 				471CB23F1BCC4F1B00FC4D48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		471CB2401BCC4F1B00FC4D48 /* Build configuration list for PBXNativeTarget "MeetMeUpTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +511,7 @@
 				471CB2421BCC4F1B00FC4D48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		471CB2431BCC4F1B00FC4D48 /* Build configuration list for PBXNativeTarget "MeetMeUpUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +520,7 @@
 				471CB2451BCC4F1B00FC4D48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
