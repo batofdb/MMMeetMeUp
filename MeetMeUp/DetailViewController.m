@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *RSVPCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hostingGroupInfoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UIWebView *descriptionWebView;
 
 @end
 
@@ -26,7 +27,11 @@
     self.RSVPCountLabel.text = [NSString stringWithFormat:@"%@", self.meetup[@"yes_rsvp_count"]];
     self.hostingGroupInfoLabel.text = self.meetup[@"group"][@"name"];
 
+    NSString *decsriptionString = [NSString stringWithFormat:@"%@",self.meetup[@"description"]];
 
+    [self.descriptionWebView loadHTMLString:decsriptionString baseURL:nil];
+
+    [self.descriptionWebView reload];
 
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="66J-2l-mCS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="66J-2l-mCS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -90,8 +90,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAy-sd-5Nk">
-                                <rect key="frame" x="58" y="168" width="312" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAy-sd-5Nk">
+                                <rect key="frame" x="58" y="84" width="312" height="21"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="SA1-0s-EGc"/>
@@ -101,8 +101,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xL-ZF-9n4">
-                                <rect key="frame" x="58" y="251" width="312" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSVP Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xL-ZF-9n4">
+                                <rect key="frame" x="58" y="124" width="312" height="21"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="R0c-5F-3AL"/>
@@ -112,8 +112,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oat-1W-GCF">
-                                <rect key="frame" x="58" y="337" width="287" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hosting Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oat-1W-GCF">
+                                <rect key="frame" x="58" y="167" width="287" height="21"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="287" id="9v2-mc-MBP"/>
@@ -123,29 +123,31 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMi-fZ-CFn">
-                                <rect key="frame" x="58" y="417" width="358" height="131"/>
-                                <animations/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwD-KQ-V2U">
+                                <rect key="frame" x="0.0" y="236" width="600" height="364"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="131" id="02b-25-fTo"/>
-                                    <constraint firstAttribute="width" constant="358" id="WCP-WW-jta"/>
+                                    <constraint firstAttribute="height" constant="364" id="S7a-67-aAf"/>
+                                    <constraint firstAttribute="width" constant="600" id="zaL-pe-ow9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <connections>
+                                    <outlet property="delegate" destination="u5i-oz-8O4" id="RIR-Ti-mkM"/>
+                                </connections>
+                            </webView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3xL-ZF-9n4" firstAttribute="top" secondItem="bAy-sd-5Nk" secondAttribute="bottom" constant="62" id="7F4-23-4u1"/>
-                            <constraint firstItem="QMi-fZ-CFn" firstAttribute="top" secondItem="Oat-1W-GCF" secondAttribute="bottom" constant="59" id="Ioz-19-NjI"/>
-                            <constraint firstItem="Oat-1W-GCF" firstAttribute="top" secondItem="3xL-ZF-9n4" secondAttribute="bottom" constant="65" id="TFy-vq-Esv"/>
+                            <constraint firstItem="3xL-ZF-9n4" firstAttribute="top" secondItem="bAy-sd-5Nk" secondAttribute="bottom" constant="19" id="7F4-23-4u1"/>
+                            <constraint firstItem="WwD-KQ-V2U" firstAttribute="leading" secondItem="Fdp-im-8BT" secondAttribute="leading" id="N5w-DX-DxR"/>
+                            <constraint firstItem="Oat-1W-GCF" firstAttribute="top" secondItem="3xL-ZF-9n4" secondAttribute="bottom" constant="22" id="TFy-vq-Esv"/>
+                            <constraint firstItem="WwD-KQ-V2U" firstAttribute="top" secondItem="Oat-1W-GCF" secondAttribute="bottom" constant="48" id="YGS-lt-hXa"/>
                             <constraint firstItem="3xL-ZF-9n4" firstAttribute="leading" secondItem="bAy-sd-5Nk" secondAttribute="leading" id="duR-KP-M1a"/>
                             <constraint firstItem="bAy-sd-5Nk" firstAttribute="leading" secondItem="Fdp-im-8BT" secondAttribute="leadingMargin" constant="38" id="mfR-69-MKI"/>
-                            <constraint firstItem="Oat-1W-GCF" firstAttribute="leading" secondItem="QMi-fZ-CFn" secondAttribute="leading" id="oEG-UN-7MS"/>
+                            <constraint firstAttribute="bottom" secondItem="WwD-KQ-V2U" secondAttribute="bottom" id="pp8-Ou-2Ad"/>
+                            <constraint firstAttribute="trailing" secondItem="WwD-KQ-V2U" secondAttribute="trailing" id="q9E-Yf-3oS"/>
                             <constraint firstItem="Oat-1W-GCF" firstAttribute="leading" secondItem="3xL-ZF-9n4" secondAttribute="leading" id="rBk-ve-l8g"/>
-                            <constraint firstItem="bAy-sd-5Nk" firstAttribute="top" secondItem="7rN-b8-eWC" secondAttribute="bottom" constant="104" id="sP2-iM-nHh"/>
+                            <constraint firstItem="bAy-sd-5Nk" firstAttribute="top" secondItem="7rN-b8-eWC" secondAttribute="bottom" constant="20" id="sP2-iM-nHh"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -159,7 +161,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="RSVPCountLabel" destination="3xL-ZF-9n4" id="oia-zF-Kqp"/>
-                        <outlet property="eventDescriptionLabel" destination="QMi-fZ-CFn" id="Euo-1W-mJN"/>
+                        <outlet property="descriptionWebView" destination="WwD-KQ-V2U" id="fkI-Wi-BD7"/>
                         <outlet property="hostingGroupInfoLabel" destination="Oat-1W-GCF" id="ygE-PE-cBe"/>
                         <outlet property="nameLabel" destination="bAy-sd-5Nk" id="O6k-3M-AbS"/>
                     </connections>
