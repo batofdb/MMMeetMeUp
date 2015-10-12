@@ -9,6 +9,10 @@
 #import "DetailViewController.h"
 
 @interface DetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *RSVPCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hostingGroupInfoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventDescriptionLabel;
 
 @end
 
@@ -17,7 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    self.nameLabel.text = self.meetup[@"venue"][@"name"];
+    self.RSVPCountLabel.text = self.meetup[@"yes_rsvp_count"];
+    self.hostingGroupInfoLabel.text = self.meetup[@"group"][@"name"];
+    self.eventDescriptionLabel.text = self.meetup[@"description"];
 
 
 }
