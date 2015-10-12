@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "WebViewController.h"
+#import "CommentsViewController.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -36,11 +37,18 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    WebViewController *webVC = segue.destinationViewController;
 
-    NSString *meetupURL = self.meetup[@"event_url"];
-    [meetupURL stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-    webVC.urlString = meetupURL;
+    if ([segue.identifier isEqualToString:@"webViewSegue"]) {
+        WebViewController *webVC = segue.destinationViewController;
+        NSString *meetupURL = self.meetup[@"event_url"];
+        [meetupURL stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+        webVC.urlString = meetupURL;
+    }
+    if ([segue.identifier isEqualToString:@"commentsSegue"]) {
+        CommentsViewController *commentVC = segue.destinationViewController;
+        NSString *eventID = self.meetup[@"id"];
+        commentVC.eventID = eventID;
+    }
 }
 
 

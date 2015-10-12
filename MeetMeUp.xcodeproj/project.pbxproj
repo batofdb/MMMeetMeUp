@@ -17,6 +17,8 @@
 		471CB22E1BCC4F1B00FC4D48 /* MeetMeUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 471CB22D1BCC4F1B00FC4D48 /* MeetMeUpTests.m */; };
 		471CB2391BCC4F1B00FC4D48 /* MeetMeUpUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 471CB2381BCC4F1B00FC4D48 /* MeetMeUpUITests.m */; };
 		4741923E1BCC59B500FBE2FA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4741923D1BCC59B500FBE2FA /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		474192411BCC723F00FBE2FA /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474192401BCC723F00FBE2FA /* CommentsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		474192441BCC7A6900FBE2FA /* MemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474192431BCC7A6900FBE2FA /* MemberViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		471CB23A1BCC4F1B00FC4D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4741923C1BCC59B500FBE2FA /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		4741923D1BCC59B500FBE2FA /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		4741923F1BCC723F00FBE2FA /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
+		474192401BCC723F00FBE2FA /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
+		474192421BCC7A6900FBE2FA /* MemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberViewController.h; sourceTree = "<group>"; };
+		474192431BCC7A6900FBE2FA /* MemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,10 @@
 				471CB2131BCC4F1A00FC4D48 /* Supporting Files */,
 				4741923C1BCC59B500FBE2FA /* DetailViewController.h */,
 				4741923D1BCC59B500FBE2FA /* DetailViewController.m */,
+				4741923F1BCC723F00FBE2FA /* CommentsViewController.h */,
+				474192401BCC723F00FBE2FA /* CommentsViewController.m */,
+				474192421BCC7A6900FBE2FA /* MemberViewController.h */,
+				474192431BCC7A6900FBE2FA /* MemberViewController.m */,
 			);
 			path = MeetMeUp;
 			sourceTree = "<group>";
@@ -282,9 +292,11 @@
 			files = (
 				471CB21B1BCC4F1A00FC4D48 /* ViewController.m in Sources */,
 				3ABD69A31BCC5EC300DDDB20 /* WebViewController.m in Sources */,
+				474192411BCC723F00FBE2FA /* CommentsViewController.m in Sources */,
 				471CB2181BCC4F1A00FC4D48 /* AppDelegate.m in Sources */,
 				471CB2151BCC4F1A00FC4D48 /* main.m in Sources */,
 				4741923E1BCC59B500FBE2FA /* DetailViewController.m in Sources */,
+				474192441BCC7A6900FBE2FA /* MemberViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
