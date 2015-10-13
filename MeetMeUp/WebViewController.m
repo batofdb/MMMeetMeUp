@@ -4,15 +4,6 @@
 //
 //  Created by Philip Henson on 10/12/15.
 //  Copyright © 2015 Francis Bato. All rights reserved.
-//  Taken from following project
-
-//
-//  SafariMainViewController.m
-//  SafariTNG
-//
-//  Created by Richard Martinez on 9/30/15.
-//  Copyright © 2015 Shotty Shack Games. All rights reserved.
-//
 
 #import "WebViewController.h"
 
@@ -46,12 +37,18 @@
     self.webView.delegate = self;
     self.webView.scrollView.delegate = self;
 
-
     [self toggleButton:self.backButton toEnable:NO];
     [self toggleButton:self.forwardButton toEnable:NO];
     [self toggleButton:self.refreshButton toEnable:NO];
     self.pageTitle.alpha = 0;
+    [self setNeedsStatusBarAppearanceUpdate];
 
+
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 -(void)toggleButton:(UIButton *)button toEnable:(BOOL)enable {

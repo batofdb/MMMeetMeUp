@@ -32,10 +32,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[self.comments[indexPath.row][@"time"] doubleValue]/1000.0];
+    NSArray *timeAndDate = [self dateAndTimeStringFromEpoch:self.comments[indexPath.row][@"time"]];
 
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",date,self.comments[indexPath.row][@"member_name"]];
-    cell.detailTextLabel.text = self.comments[indexPath.row][@"comment"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@",self.comments[indexPath.row][@"member_name"], [NSString stringWithFormat:@"%@%@", timeAndDate[0], timeAndDate[1]]];
+    cell.textLabel.text = self.comments[indexPath.row][@"comment"];
 
     return cell;
 }
@@ -47,7 +47,6 @@
     [self loadResultsWithUrl:url];
 }
 
-
 -(void)loadResultsWithUrl:(NSURL *)url{
 
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -58,9 +57,7 @@
             self.comments = [[NSArray alloc] init];
             self.comments = self.results[@"results"];
 
-
             dispatch_async(dispatch_get_main_queue(), ^{
-                //  NSLog(@"log");
 
                 [self.tableView reloadData];
             });
@@ -68,7 +65,7 @@
         }
 
         else {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No comments" message:@"No comments found with this meetup." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No comments found" message:@"" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *dismiss = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
             }];
@@ -80,6 +77,23 @@
     }];
     
     [task resume];
+}
+
+-(NSArray *)dateAndTimeStringFromEpoch:(id)epochNumber{
+
+    NSTimeInterval seconds = [epochNumber doubleValue]/1000.0;
+    NSDate* epochNSDate = [[NSDate alloc] initWithTimeIntervalSince1970:seconds];
+
+    NSDateFormatter* dateFormatterDay = [[NSDateFormatter alloc] init];
+    [dateFormatterDay setDateFormat:@"EEE, MMM d"];
+
+    NSDateFormatter* dateFormatterTime = [[NSDateFormatter alloc] init];
+    [dateFormatterTime setDateFormat:@"hh:mm aaa"];
+
+    NSArray *dateAndTime = @[[dateFormatterDay stringFromDate:epochNSDate], [dateFormatterTime stringFromDate:epochNSDate]];
+
+    return dateAndTime;
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

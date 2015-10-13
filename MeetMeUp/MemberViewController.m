@@ -23,8 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
     [self makeMemberInfoURL:self.memberID];
 
 }
@@ -37,7 +35,6 @@
     [self loadResultsWithUrl:url];
 }
 
-
 -(void)loadResultsWithUrl:(NSURL *)url{
 
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -45,18 +42,13 @@
         if (data){
             self.results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
             dispatch_async(dispatch_get_main_queue(), ^{
-                //  NSLog(@"log");
 
                 self.memberNameLabel.text = self.results[@"name"];
-
                 self.locationLabel.text = [NSString stringWithFormat:@"%@, %@", self.results[@"city"],self.results[@"country"]];
-
                 self.bioLabel.text = self.results[@"bio"];
-
 
                 NSString *photoURL = self.results[@"photo"][@"photo_link"];
                 [photoURL stringByReplacingOccurrencesOfString:@"\\" withString:@""];
-
 
                 NSData *imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:photoURL]];
                 self.profileImageView.image = [UIImage imageWithData:imageData];
@@ -65,7 +57,7 @@
         }
 
         else {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No comments" message:@"No comments found with this meetup." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Member profile not found" message:@"" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *dismiss = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
             }];
